@@ -1,4 +1,3 @@
-
 class category:
     def __init__():
         pass
@@ -8,7 +7,3 @@ class category:
     #def withdraw():
     #def fet_balance():
     #def __str__():
-
-
-
-ledger = category()
