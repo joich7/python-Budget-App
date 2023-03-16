@@ -11,7 +11,7 @@ food.withdraw(100, "bacon")
 
 
 
-#clothes = category("clothes")
+clothes = category("clothes")
 #clothes.deposit(100, "Initial deposit")
 #lothes.withdraw(10, "bought new high heels")
 
@@ -21,7 +21,7 @@ food.withdraw(100, "bacon")
 #print(food.message())
 #print(food)
 #print(clothes)
-print(food.check_funds())
+
 print(food)
 print(clothes)
 

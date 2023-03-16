@@ -14,18 +14,16 @@ class category:
 
     def withdraw(self, amount, description):
        
-        if amount <= self.check_funds():
+        if amount <= self.get_balance():
             amount = -amount
             self.ledger.append({"withdraw": amount, "description": description})
         else:
             print(f"insufficient funds! could not withdraw ${amount} for {description}")
             
+    def check_funds(self, amount):
+        return amount <= self.get_balance()
+
     def get_balance(self):
-
-        balance = self.funds
-        return balance
-
-    def check_funds(self):
         withdraw = 0
         deposits = 0
         for i in self.ledger:
@@ -41,7 +39,7 @@ class category:
 
     #transfer function/ will need target input and amount. use check funds
     def transfer(self, amount, destination):
-        if amount <= self.check_funds():
+        if amount <= self.get_balance():
             self.ledger.append({"withdraw": -amount, "description": f"transer to {destination}"})
             destination.ledger.append({"deposit": amount, "description": f"transfer from {self.category} "})
 
@@ -56,7 +54,7 @@ class category:
         for i in ledger:
             if "withdraw" in i.keys() or "transfer" in i.keys():
                 outputStr += (str(i["description"]) + str(i["withdraw"]))+"\n"
-        outputStr += "Total: " + str(self.check_funds()) + "\n"
+        outputStr += "Total: " + str(self.get_balance()) + "\n"
         
         return(outputStr)
 
