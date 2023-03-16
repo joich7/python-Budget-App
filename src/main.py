@@ -11,15 +11,18 @@ food.withdraw(100, "bacon")
 
 
 
-clothes = category("clothes")
-clothes.deposit(100, "Initial deposit")
-clothes.withdraw(10, "bought new high heels")
+#clothes = category("clothes")
+#clothes.deposit(100, "Initial deposit")
+#lothes.withdraw(10, "bought new high heels")
 
 
 #print(food.ledger) 
 #print(food.check_funds())
 #print(food.message())
+#print(food)
+#print(clothes)
+print(food.check_funds())
 print(food)
 print(clothes)
 
-food.transfer(40, clothes)
+#food.transfer(40, clothes)

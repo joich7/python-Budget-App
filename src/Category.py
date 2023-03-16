@@ -9,7 +9,7 @@ class category:
         self.category = category
 
     def deposit(self, amount, description=""):
-        self.ledger.append({"amount":amount, "description":description})
+        self.ledger.append({"deposit":amount, "description":description})
         self.funds = amount
 
     def withdraw(self, amount, description):
@@ -26,12 +26,18 @@ class category:
         return balance
 
     def check_funds(self):
-        sum = 0
+        withdraw = 0
+        deposits = 0
         for i in self.ledger:
             if "withdraw" in i.keys():
-                sum += i["withdraw"]
+                withdraw += i["withdraw"]
+        for i in self.ledger:
+            if "deposit" in i.keys():
+                deposits += i["deposit"]
         #print(self.funds)
-        return(self.funds + sum)#adding because sum is a negative number
+        #print(f"Withdraws: {withdraw}")
+        #print(f"deposits: {deposits}")
+        return(deposits + withdraw)#adding because sum is a negative number
 
     #transfer function/ will need target input and amount. use check funds
     def transfer(self, amount, destination):
@@ -47,7 +53,6 @@ class category:
     def __str__(self):
         ledger = self.ledger 
         outputStr = "Category: " + str(self.category)+"\n"
-        outputStr += f"Initial Deposit:{ledger[0]['amount']}" +"\n"
         for i in ledger:
             if "withdraw" in i.keys() or "transfer" in i.keys():
                 outputStr += (str(i["description"]) + str(i["withdraw"]))+"\n"
