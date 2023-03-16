@@ -1,14 +1,15 @@
-
-class category:
-    def __init__():
-        pass
-    #def check_funds():
-
-    #def deposit(amount, description):
-    #def withdraw():
-    #def fet_balance():
-    #def __str__():
+from Category import category
 
 
 
-ledger = category()
+food = category()
+
+food.deposit(20, "Depositing this weeks payheck")
+food.withdraw(10, "Groceries")
+food.withdraw(5, "Mediterannian grill")
+food.withdraw(100, "bacon")
+print(food.ledger) 
+print(food.check_funds())
+#print(food.message())
+print(food)
+
