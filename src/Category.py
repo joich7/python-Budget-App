@@ -14,7 +14,7 @@ class category:
 
     def withdraw(self, amount, description):
        
-        if amount <= self.get_balance():
+        if self.check_funds(amount):
             amount = -amount
             self.ledger.append({"withdraw": amount, "description": description})
         else:
@@ -51,9 +51,12 @@ class category:
     def __str__(self):
         ledger = self.ledger 
         outputStr = "Category: " + str(self.category)+"\n"
+
         for i in ledger:
-            if "withdraw" in i.keys() or "transfer" in i.keys():
-                outputStr += (str(i["description"]) + str(i["withdraw"]))+"\n"
+            if "withdraw" in i.keys():
+                outputStr += f"{i['description']}: {i['withdraw']} \n"
+            elif "deposit" in i.keys():
+                outputStr += f"{i['description']}: +{i['deposit']} \n"
         outputStr += "Total: " + str(self.get_balance()) + "\n"
         
         return(outputStr)

@@ -3,7 +3,7 @@ from Category import category
 
 
 food = category("food")
-food.deposit(2000, "Initial Deposit")
+food.deposit(100, "Initial Deposit")
 food.withdraw(10, "Groceries")
 food.withdraw(5, "Mediterannian grill")
 food.withdraw(100, "bacon")
