@@ -15,6 +15,12 @@ clothes = category("clothes")
 food.transfer(30, clothes)
 
 
+for i in ledger:
+            if "food" in i.keys():
+                
+            elif "deposit" in i.keys():
+                outputStr += f"{i['description']}: +{i['deposit']} \n"
+
 
 print(food)
 
