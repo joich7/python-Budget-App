@@ -21,8 +21,9 @@ clothes = category("clothes")
 #print(food.message())
 #print(food)
 #print(clothes)
-
+food.transfer(30, clothes)
 print(food)
+
 print(clothes)
 
 #food.transfer(40, clothes)
